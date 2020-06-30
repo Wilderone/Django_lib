@@ -33,3 +33,9 @@ class Book(models.Model):
 
     def __str__(self):
         return self.title
+
+class Inspiration(models.Model):
+    book = models.ForeignKey(Book, on_delete=models.CASCADE)
+    author = models.ForeignKey(Author, on_delete=models.CASCADE)
+    inspirer = models.ForeignKey(Author, on_delete=models.CASCADE, related_name='inspired_works')
+    
